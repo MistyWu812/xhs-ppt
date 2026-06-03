@@ -33,7 +33,7 @@ git clone https://github.com/MistyWu812/xhs-ppt.git ~/.claude/skills/xhs-ppt
 
 - **Google Chrome**（headless 渲染 HTML→PNG；macOS 自动探测，其它平台用 `CHROME=/path/to/chrome` 覆盖）
 - **Python 3** + `pip install pillow`（仅 2合1 拼接 `stack_cards.py` 用到）
-- 旗舰配色用到 Google Fonts（Orbitron）+ Material Icons，**需联网**；离线请改用 `tech-navy`（智谱深蓝，纯 SVG）。
+- 旗舰配色用到 Google Fonts（Orbitron）+ Material Icons，**需联网**；离线请改用 `tech-navy`（深蓝，纯 SVG）。
 
 ## 用法
 
@@ -65,7 +65,7 @@ python3 tools/render_longform.py path/to/file.html
 | 配色 | 场景 | 位置 |
 |---|---|---|
 | 科技深色·亮电光青（旗舰） | 观点强 / AI·产品向 / 体系分层 | `templates/tech-cyan/` |
-| 智谱深蓝（离线安全，纯 SVG） | 同上但需离线 / 更稳重 | `templates/tech-navy/` |
+| 深蓝（离线安全，纯 SVG） | 同上但需离线 / 更稳重 | `templates/tech-navy/` |
 | 专业蓝绿 / 暖中性 / 极简黑（浅色家族） | HR 方法论 / 故事 / 单点暴论 | token 见 `SKILL.md` |
 
 比例：9:16 竖卡 `1080×1440`（小红书默认）/ 16:9 单页 `1280×720` / 2合1 竖卡 `1280×1440`，一律 @2x。
@@ -81,7 +81,7 @@ xhs-ppt/
 │   └── render_longform.py    ← 整篇渲成一张超长图
 ├── templates/
 │   ├── tech-cyan/            ← 旗舰：_skeleton / _components(九件套) / _starter.py / slide01–11 范例 / 样张
-│   └── tech-navy/            ← 智谱深蓝：6 张 HR 卡范例 + 样张
+│   └── tech-navy/            ← 深蓝：6 张 HR 卡范例 + 样张
 └── examples/
     └── hr-collab-modes/      ← 完整 worked example：_gen.py + _storyboard.md + 6 张 2合1 成图
 ```
