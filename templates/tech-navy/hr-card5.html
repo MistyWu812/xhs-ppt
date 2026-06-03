@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{ --orange:#ff9a2e; --orange-soft:#ffb35c; --cyan:#4fcfe0; --blue:#3b82e6;
+    --card:#141d33; --line:rgba(255,255,255,.08); --muted:#9aa3b8; }
+  body{ width:1280px; height:1440px; overflow:hidden;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#fff;
+    background:linear-gradient(180deg,#0a1020 0%,#0c1326 50%,#0a1020 100%); display:flex; flex-direction:column;}
+  .banner{ height:64px; flex:none; display:flex; align-items:center; padding:0 40px; gap:16px;
+    background:linear-gradient(90deg,#178fb4 0%,#2360c9 100%); box-shadow:inset 0 -1px 0 rgba(0,0,0,.2); }
+  .banner .accent{ width:6px; height:30px; border-radius:3px; background:var(--orange); flex:none;}
+  .banner .ttl{ font-size:25px; font-weight:800; letter-spacing:.5px; }
+  .wrap{ flex:1; padding:38px 40px; display:flex; flex-direction:column; }
+  .sub{ font-size:18px; color:var(--muted); margin-bottom:26px; display:flex; align-items:center; gap:10px;}
+  .sub svg{ width:20px; height:20px; color:var(--cyan);}
+  table{ width:100%; border-collapse:separate; border-spacing:0 14px; flex:1; }
+  th{ text-align:left; font-size:17px; color:var(--cyan); font-weight:700; padding:0 22px 10px; }
+  th:first-child{ text-align:center; width:130px;}
+  tr.row td{ background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:24px 22px; vertical-align:middle; }
+  tr.row td:first-child{ border-left:1px solid var(--line); border-radius:14px 0 0 14px; text-align:center; }
+  tr.row td:last-child{ border-right:1px solid var(--line); border-radius:0 14px 14px 0; }
+  .badge{ width:62px; height:62px; border-radius:14px; display:inline-flex; flex-direction:column; align-items:center; justify-content:center; font-weight:900; }
+  .badge .l{ font-size:22px; line-height:1;} .badge .s{ font-size:12px; margin-top:3px; font-weight:700;}
+  .b3{ background:linear-gradient(135deg,#ff9a2e,#ff7a2e); color:#1a1208;}
+  .b2{ background:linear-gradient(135deg,#4fcfe0,#3b82e6); color:#06121e;}
+  .b1{ background:rgba(79,207,224,.16); color:var(--cyan); border:1px solid rgba(79,207,224,.45);}
+  .b0{ background:rgba(255,255,255,.07); color:#aeb6c8; border:1px solid var(--line);}
+  .who{ font-size:18px; font-weight:800;}
+  .mrole{ font-size:16px; color:#dfe4ef; line-height:1.5;}
+  .hrole{ font-size:16px; color:#dfe4ef; line-height:1.5;}
+  .work{ font-size:15px; color:var(--muted); line-height:1.65;}
+  .work b{ color:#cfd6e6; font-weight:600;}
+  .foot{ margin-top:22px; background:rgba(255,154,46,.06); border:1px solid rgba(255,154,46,.3); border-radius:12px; padding:16px 22px; font-size:15.5px; color:#e7ebf3; display:flex; align-items:center; gap:11px;}
+  .foot svg{ width:20px; height:20px; color:var(--orange); flex:none;} .foot b{ color:var(--orange-soft);}
+  td.c{ color:var(--cyan); font-weight:800; font-size:18px;}
+  td.o{ color:var(--orange-soft); font-weight:800; font-size:18px;}
+</style>
+</head>
+<body>
+  <div class="banner"><div class="accent"></div><span class="ttl">HR 工作分层全景表</span></div>
+  <div class="wrap">
+    <div class="sub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg>四层一目了然：谁决策、机器做什么、人做什么、典型有哪些活</div>
+    <table>
+      <thead><tr><th>级别</th><th>谁决策</th><th>机器角色</th><th>人的角色</th><th>HR 典型工作</th></tr></thead>
+      <tbody>
+        <tr class="row">
+          <td><div class="badge b3"><span class="l">L3</span><span class="s">全自主</span></div></td>
+          <td class="o">机器</td>
+          <td class="mrole">端到端执行</td>
+          <td class="hrole">抽查、兜底</td>
+          <td class="work">政策问答 · 事务流程 · 排程 · 信息整合 · 候选人初筛 · <b>标准化文案</b></td>
+        </tr>
+        <tr class="row">
+          <td><div class="badge b2"><span class="l">L2</span><span class="s">协同</span></div></td>
+          <td class="c">共同</td>
+          <td class="mrole">提案 + 证据链</td>
+          <td class="hrole">拍板、修正</td>
+          <td class="work">定级定薪 · JD 优先级 · 绩效校准 · <b>培训方案设计</b></td>
+        </tr>
+        <tr class="row">
+          <td><div class="badge b1"><span class="l">L1</span><span class="s">人主导</span></div></td>
+          <td class="c">人</td>
+          <td class="mrole">副驾、记录、备忘</td>
+          <td class="hrole">主导执行</td>
+          <td class="work">绩效谈话 · 冲突处理 · 激励 · 文化塑造 · <b>组织设计</b></td>
+        </tr>
+        <tr class="row">
+          <td><div class="badge b0"><span class="l">L0</span><span class="s">纯人</span></div></td>
+          <td class="c">人</td>
+          <td class="mrole">不介入 / 只存档</td>
+          <td class="hrole">全程</td>
+          <td class="work">伦理判断 · 法律红线 · 裁员 · 纠纷处理 · <b>极敏感人际</b></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg><div>从 L3 到 L0，<b>机器的角色一路退场，人的角色一路上前</b>——分层的本质，是把决策权放回该在的地方。</div></div>
+  </div>
+</body>
+</html>

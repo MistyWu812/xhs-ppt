@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --orange:#ff9a2e; --orange-soft:#ffb35c; --cyan:#4fcfe0; --blue:#3b82e6;
+    --red:#e8635f; --card:#141d33; --line:rgba(255,255,255,.07); --muted:#8a93ab;
+  }
+  body{ width:1280px; height:1440px; overflow:hidden;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#fff;
+    background:linear-gradient(180deg,#0a1020 0%,#0c1326 50%,#0a1020 100%); }
+  .section{ height:720px; display:flex; flex-direction:column; }
+  .banner{ height:64px; flex:none; display:flex; align-items:center; padding:0 40px; gap:16px;
+    background:linear-gradient(90deg,#178fb4 0%,#2360c9 100%); box-shadow:inset 0 -1px 0 rgba(0,0,0,.2); }
+  .banner .accent{ width:6px; height:30px; border-radius:3px; background:var(--orange); flex:none;}
+  .banner .lvl{ font-size:26px; font-weight:800; letter-spacing:1px; }
+  .banner .ttl{ font-size:23px; font-weight:700; }
+  .body{ flex:1; display:grid; grid-template-columns:430px 1fr; gap:26px; padding:30px 40px 34px; }
+  .col{ display:flex; flex-direction:column; gap:22px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; }
+  .card .head{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .card .head svg{ width:22px; height:22px; }
+  .card .head .h{ font-size:21px; font-weight:700; }
+  .icon-cyan{ color:var(--cyan);} .icon-orange{ color:var(--orange);} .icon-red{ color:var(--red);}
+  .def .term{ font-size:24px; font-weight:800; margin-bottom:12px;}
+  .def .body-txt{ font-size:16px; line-height:1.75; color:var(--muted);}
+  .hero{ background:linear-gradient(135deg,#1a1408 0%,#15192c 60%); border:1px solid rgba(255,154,46,.22);
+    flex:1; display:flex; flex-direction:column; }
+  .hero .label{ font-size:18px; font-weight:700;}
+  .hero .big{ font-size:58px; font-weight:900; color:var(--orange); line-height:1.05; margin:12px 0 8px; letter-spacing:1px;}
+  .hero .cap{ font-size:16px; color:#cdd3e0; margin-bottom:auto;}
+  .hero .foot{ display:flex; align-items:center; gap:8px; font-size:14.5px; color:var(--cyan); margin-top:16px;}
+  .hero .foot svg{ width:16px; height:16px; flex:none;}
+  .list-head{ display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .list-head svg{ width:24px; height:24px; color:var(--cyan);}
+  .list-head .h{ font-size:23px; font-weight:800;}
+  .chips{ display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .chip{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; align-items:center; gap:13px;}
+  .chip svg{ width:20px; height:20px; color:var(--cyan); flex:none;}
+  .chip span{ font-size:18px; font-weight:600;}
+  .key{ background:rgba(255,154,46,.06); border:1px solid rgba(255,154,46,.30); border-radius:14px; padding:20px 24px;}
+  .key .khead{ display:flex; align-items:center; gap:9px; margin-bottom:16px;}
+  .key .khead svg{ width:21px; height:21px; color:var(--orange);}
+  .key .khead .h{ font-size:19px; font-weight:800; color:var(--orange-soft);}
+  .key .pts{ display:flex; gap:22px; margin-bottom:14px;}
+  .key .pt{ display:flex; align-items:center; gap:9px; font-size:15.5px; color:#e7ebf3;}
+  .key .num{ width:24px; height:24px; border-radius:50%; background:rgba(255,154,46,.16); color:var(--orange); font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; flex:none;}
+  .key .note{ font-size:14.5px; color:var(--muted); border-top:1px solid rgba(255,255,255,.05); padding-top:13px;}
+  .key .note b{ color:var(--orange-soft); font-weight:700;}
+  /* 对比 box */
+  .cmp{ display:flex; gap:16px; }
+  .cmp .box{ flex:1; border-radius:12px; padding:18px 20px; }
+  .cmp .old{ background:rgba(232,99,95,.07); border:1px solid rgba(232,99,95,.30);}
+  .cmp .new{ background:rgba(79,207,224,.07); border:1px solid rgba(79,207,224,.30);}
+  .cmp .ch{ display:flex; align-items:center; gap:9px; font-size:18px; font-weight:800; margin-bottom:8px;}
+  .cmp .ch svg{ width:20px; height:20px;}
+  .cmp .old .ch{ color:#f0908c;} .cmp .new .ch{ color:var(--cyan);}
+  .cmp .ct{ font-size:15px; color:var(--muted); line-height:1.6;}
+</style>
+</head>
+<body>
+
+  <!-- ===== L3 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="lvl">L3 全自主：</span><span class="ttl">机器端到端干，人只抽查兜底</span></div>
+    <div class="body">
+      <div class="col">
+        <div class="card def">
+          <div class="head"><svg class="icon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg><span class="h">定义</span></div>
+          <div class="term">真 ·「AI 全包」</div>
+          <div class="body-txt">机器从输入到输出端到端完成，人只在结果端做抽查和兜底。流程一旦跑通，几乎不用人插手。</div>
+        </div>
+        <div class="card hero">
+          <div class="label">工作占比</div>
+          <div class="big">60%+</div>
+          <div class="cap">HR 工时压在这一层</div>
+          <div class="foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>这几乎就是旧 SSC 的全部工作</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="list-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="h">具体哪些活在 L3？</span></div>
+        <div class="chips">
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>政策问答</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>事务流程</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>排程</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>信息整合</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg><span>候选人初筛</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><span>标准化文案</span></div>
+        </div>
+        <div class="key">
+          <div class="khead"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span class="h">关键：异常触发回路</span></div>
+          <div class="pts">
+            <div class="pt"><span class="num">1</span>抽查比例 5–10%</div>
+            <div class="pt"><span class="num">2</span>异常自动触发</div>
+            <div class="pt"><span class="num">3</span>周期 review</div>
+          </div>
+          <div class="note">AI 在这层是主操盘，但 HR 是<b>质量监理</b>——这个角色定位千万不能丢。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== L2 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="lvl">L2 协同：</span><span class="ttl">机器出方案 + 证据链，人拍板</span></div>
+    <div class="body">
+      <div class="col">
+        <div class="card def">
+          <div class="head"><svg class="icon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="h">定义</span></div>
+          <div class="term">「AI 价值密度最高的一层」</div>
+          <div class="body-txt">机器把分析、对标、推演都做完，把"证据链"完整摆给你，你看 5 分钟就能拍板——而这件事过去要你花 1 小时跑数据 + 想方案。</div>
+        </div>
+        <div class="card hero">
+          <div class="label">拍板耗时</div>
+          <div class="big">5 分钟</div>
+          <div class="cap">过去要 1 小时跑数据 + 想方案</div>
+          <div class="foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>省下的不是体力，是决策前的认知负担</span></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="list-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span class="h">具体哪些活在 L2？</span></div>
+        <div class="chips">
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span>定级定薪</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg><span>JD 优先级排序</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>绩效校准</span></div>
+          <div class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg><span>培训方案设计</span></div>
+        </div>
+        <div class="cmp">
+          <div class="box old">
+            <div class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>旧 COE</div>
+            <div class="ct">HR 自己跑数据、自己做分析，方案出得慢，还说不清依据。</div>
+          </div>
+          <div class="box new">
+            <div class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>L2</div>
+            <div class="ct">机器做分析 + 给证据链，HR 只做判断。<b style="color:#8fd9e4">定薪数必须能追溯怎么算出来的。</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

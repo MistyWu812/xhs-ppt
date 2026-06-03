@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{ --orange:#ff9a2e; --orange-soft:#ffb35c; --cyan:#4fcfe0; --blue:#3b82e6;
+    --red:#e8635f; --card:#141d33; --line:rgba(255,255,255,.07); --muted:#8a93ab; }
+  body{ width:1280px; height:1440px; overflow:hidden;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#fff;
+    background:linear-gradient(180deg,#0a1020 0%,#0c1326 50%,#0a1020 100%); }
+  .section{ height:720px; display:flex; flex-direction:column; }
+  .banner{ height:64px; flex:none; display:flex; align-items:center; padding:0 40px; gap:16px;
+    background:linear-gradient(90deg,#178fb4 0%,#2360c9 100%); box-shadow:inset 0 -1px 0 rgba(0,0,0,.2); }
+  .banner .accent{ width:6px; height:30px; border-radius:3px; background:var(--orange); flex:none;}
+  .banner .ttl{ font-size:25px; font-weight:800; letter-spacing:.5px; }
+  /* ===== pyramid ===== */
+  .pbody{ flex:1; display:flex; align-items:center; gap:40px; padding:24px 50px; }
+  .pyramid{ flex:none; width:560px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+  .pb{ height:108px; border-radius:14px; display:flex; align-items:center; padding:0 26px; gap:18px; color:#06121e; }
+  .pb .bdg{ font-size:24px; font-weight:900; flex:none; }
+  .pb .nm{ font-size:24px; font-weight:900; }
+  .pb .wh{ font-size:14.5px; font-weight:700; opacity:.78; margin-top:3px; }
+  .pb.l3{ width:100%; background:linear-gradient(135deg,#ff9a2e,#ff7a2e);}
+  .pb.l2{ width:84%; background:linear-gradient(135deg,#4fcfe0,#3b82e6);}
+  .pb.l1{ width:66%; background:rgba(79,207,224,.18); color:#dff3f7; border:1px solid rgba(79,207,224,.5);}
+  .pb.l0{ width:46%; background:rgba(255,255,255,.08); color:#dfe4ef; border:1px solid var(--line);}
+  .pside{ flex:1; display:flex; flex-direction:column; gap:16px; }
+  .pside .h{ font-size:21px; font-weight:800; margin-bottom:2px; display:flex; align-items:center; gap:10px; }
+  .pside .h svg{ width:22px; height:22px; color:var(--cyan);}
+  .prow{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:15px 18px; font-size:16px; line-height:1.6; color:#dfe4ef;}
+  .prow b{ color:#fff;}
+  .prow.down{ background:rgba(255,154,46,.06); border-color:rgba(255,154,46,.3);}
+  .prow.down b{ color:var(--orange-soft);}
+  /* ===== principle section ===== */
+  .body{ flex:1; display:grid; grid-template-columns:440px 1fr; gap:26px; padding:30px 40px 34px; }
+  .col{ display:flex; flex-direction:column; gap:22px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; }
+  .card .head{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .card .head svg{ width:22px; height:22px; color:var(--cyan);} .card .head .h{ font-size:21px; font-weight:700; }
+  .term{ font-size:23px; font-weight:800; margin-bottom:12px;} .term em{ font-style:normal; color:var(--orange);}
+  .body-txt{ font-size:16px; line-height:1.78; color:var(--muted);} .body-txt b{ color:#fff;}
+  .hero{ background:linear-gradient(135deg,#1a1408 0%,#15192c 60%); border:1px solid rgba(255,154,46,.22); flex:1; display:flex; flex-direction:column; justify-content:center;}
+  .hero .q{ font-size:22px; font-weight:800; line-height:1.5;}
+  .hero .q em{ font-style:normal; color:var(--orange);}
+  .hero .cap{ font-size:15px; color:var(--muted); margin-top:14px;}
+  /* loop flow */
+  .loop-head{ display:flex; align-items:center; gap:10px; margin-bottom:2px;}
+  .loop-head svg{ width:24px; height:24px; color:var(--cyan);} .loop-head .h{ font-size:23px; font-weight:800;}
+  .flow{ display:flex; align-items:stretch; gap:12px; }
+  .step{ flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 14px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px;}
+  .step svg{ width:26px; height:26px; color:var(--cyan);}
+  .step .t{ font-size:17px; font-weight:700;} .step .d{ font-size:13px; color:var(--muted); line-height:1.5;}
+  .step.warn svg{ color:var(--orange);} .step.warn{ border-color:rgba(255,154,46,.3); background:rgba(255,154,46,.05);}
+  .arrowx{ display:flex; align-items:center; color:#4a5570; font-size:26px; }
+  .key{ background:rgba(255,154,46,.06); border:1px solid rgba(255,154,46,.30); border-radius:14px; padding:18px 24px; display:flex; align-items:center; gap:12px; font-size:16px; color:#e7ebf3;}
+  .key svg{ width:22px; height:22px; color:var(--orange); flex:none;} .key b{ color:var(--orange-soft);}
+</style>
+</head>
+<body>
+
+  <!-- ===== L0-L3 金字塔总览 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="ttl">四层分类：L0–L3 总览</span></div>
+    <div class="pbody">
+      <div class="pyramid">
+        <div class="pb l0"><span class="bdg">L0</span><div><div class="nm">纯人</div><div class="wh">机器不碰</div></div></div>
+        <div class="pb l1"><span class="bdg">L1</span><div><div class="nm">人主导</div><div class="wh">机器当副驾</div></div></div>
+        <div class="pb l2"><span class="bdg">L2</span><div><div class="nm">协同</div><div class="wh">机器出方案 · 人拍板</div></div></div>
+        <div class="pb l3"><span class="bdg">L3</span><div><div class="nm">全自主</div><div class="wh">机器端到端 · 人抽查</div></div></div>
+      </div>
+      <div class="pside">
+        <div class="h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>越往下，机器越主导，工作量越大</div>
+        <div class="prow down">底层 <b>L3</b> 最宽——HR <b>60%+</b> 的工时压在这里，正是 AI 最该接管的部分。</div>
+        <div class="prow">中间 <b>L2</b> 是 AI 价值密度最高的一层：机器出方案 + 证据链，人 5 分钟拍板。</div>
+        <div class="prow">往上 <b>L1</b> 是人的主场，机器只当副驾；顶层 <b>L0</b> 是 AI 禁区，永远不下沉。</div>
+        <div class="prow down">分层的目标：在合规允许下，把任务<b>尽量往下沉到 L3</b>，把人解放到判断与关系上。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 核心原则：自主性≠放任 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="ttl">核心原则：自主性 ≠ 放任</span></div>
+    <div class="body">
+      <div class="col">
+        <div class="card">
+          <div class="head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="h">前置纪律</span></div>
+          <div class="term">下放到 <em>L3</em> 之前，先问一句</div>
+          <div class="body-txt">一件事被定到 L3 全自主之前，必须先回答：<b>出错了谁兜底？怎么被发现？</b> 答不上来，就不能下放。</div>
+        </div>
+        <div class="card hero">
+          <div class="q">把活交给机器，<br>不等于<em>撒手不管</em>。</div>
+          <div class="cap">每个 L3，都要配一条回到人的抽查回路。</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="loop-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg><span class="h">L3 的异常触发回路</span></div>
+        <div class="flow">
+          <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.2"/><circle cx="15.5" cy="16" r="1.2"/><path d="M12 7v4M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg><div class="t">机器自主执行</div><div class="d">端到端跑完</div></div>
+          <div class="arrowx">→</div>
+          <div class="step warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><div class="t">抽查 / 异常</div><div class="d">抽查 5–10%<br>异常自动触发</div></div>
+          <div class="arrowx">→</div>
+          <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div class="t">人兜底</div><div class="d">纠偏 + 周期 review</div></div>
+        </div>
+        <div class="key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><div>AI 是主操盘，<b>HR 是质量监理</b>——这个角色定位，千万不能丢。</div></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

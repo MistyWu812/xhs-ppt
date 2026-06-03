@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{ --orange:#ff9a2e; --orange-soft:#ffb35c; --cyan:#4fcfe0; --blue:#3b82e6;
+    --card:#141d33; --line:rgba(255,255,255,.08); --muted:#9aa3b8; }
+  body{ width:1280px; height:1440px; overflow:hidden;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#fff;
+    background:linear-gradient(180deg,#0a1020 0%,#0c1326 50%,#0a1020 100%); }
+  .section{ height:720px; display:flex; flex-direction:column; }
+  .banner{ height:64px; flex:none; display:flex; align-items:center; padding:0 40px; gap:16px;
+    background:linear-gradient(90deg,#178fb4 0%,#2360c9 100%); box-shadow:inset 0 -1px 0 rgba(0,0,0,.2); }
+  .banner .accent{ width:6px; height:30px; border-radius:3px; background:var(--orange); flex:none;}
+  .banner .ttl{ font-size:25px; font-weight:800; letter-spacing:.5px; }
+  /* dynamic */
+  .dwrap{ flex:1; padding:34px 44px; display:flex; flex-direction:column; gap:24px;}
+  .lead{ font-size:24px; font-weight:800; line-height:1.5;} .lead em{ font-style:normal; color:var(--cyan);}
+  .timeline{ flex:1; display:flex; align-items:center; gap:18px;}
+  .tcard{ flex:1; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; height:84%; display:flex; flex-direction:column; justify-content:center; gap:10px;}
+  .tcard .tg{ font-size:15px; font-weight:800; color:var(--muted); letter-spacing:1px;}
+  .tcard .tt{ font-size:19px; font-weight:700; line-height:1.45;} .tcard .tt b{ color:var(--cyan);}
+  .tcard.future{ border-color:rgba(255,154,46,.35); background:rgba(255,154,46,.05);}
+  .tcard.future .tg{ color:var(--orange-soft);} .tcard.future .tt b{ color:var(--orange-soft);}
+  .tarrow{ flex:none; color:var(--cyan); font-size:34px; display:flex; flex-direction:column; align-items:center; gap:4px;}
+  .tarrow span{ font-size:13px; color:var(--muted);}
+  .dnote{ background:rgba(232,99,95,.06); border:1px solid rgba(232,99,95,.3); border-radius:12px; padding:16px 22px; font-size:16px; color:#f0d0ce; display:flex; align-items:center; gap:11px;}
+  .dnote svg{ width:20px; height:20px; color:#e8635f; flex:none;} .dnote b{ color:#fff;}
+  /* summary path */
+  .swrap{ flex:1; padding:30px 44px; display:flex; flex-direction:column; gap:18px;}
+  .pgrid{ flex:1; display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .pcard{ border-radius:14px; padding:22px 24px; display:flex; gap:16px; align-items:flex-start;}
+  .pcard .ic{ width:50px; height:50px; border-radius:12px; flex:none; display:flex; align-items:center; justify-content:center;}
+  .pcard .ic svg{ width:26px; height:26px;}
+  .pcard .verb{ font-size:21px; font-weight:900;} .pcard .lv{ font-size:14px; font-weight:800; margin-left:8px; opacity:.7;}
+  .pcard .txt{ font-size:15px; color:var(--muted); line-height:1.6; margin-top:6px;}
+  .p3{ background:rgba(255,154,46,.07); border:1px solid rgba(255,154,46,.3);} .p3 .ic{ background:linear-gradient(135deg,#ff9a2e,#ff7a2e); color:#1a1208;} .p3 .verb{ color:var(--orange-soft);}
+  .p2{ background:rgba(79,207,224,.07); border:1px solid rgba(79,207,224,.3);} .p2 .ic{ background:linear-gradient(135deg,#4fcfe0,#3b82e6); color:#06121e;} .p2 .verb{ color:var(--cyan);}
+  .p1{ background:var(--card); border:1px solid var(--line);} .p1 .ic{ background:rgba(79,207,224,.16); color:var(--cyan); border:1px solid rgba(79,207,224,.4);} .p1 .verb{ color:#dff3f7;}
+  .p0{ background:var(--card); border:1px solid var(--line);} .p0 .ic{ background:rgba(255,255,255,.07); color:#aeb6c8; border:1px solid var(--line);} .p0 .verb{ color:#dfe4ef;}
+  .close{ background:linear-gradient(90deg,rgba(79,207,224,.12),rgba(255,154,46,.10)); border:1px solid rgba(79,207,224,.3); border-radius:12px; padding:18px 24px; font-size:18px; font-weight:800; text-align:center;}
+  .close em{ font-style:normal; color:var(--cyan);} .close b{ color:var(--orange-soft);}
+</style>
+</head>
+<body>
+
+  <!-- ===== 动态观点 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="ttl">分层是起点，不是终点</span></div>
+    <div class="dwrap">
+      <div class="lead">这套分层<em>不是刻在石头上的</em>——它会随 AI 能力，持续往下沉。</div>
+      <div class="timeline">
+        <div class="tcard"><div class="tg">今天</div><div class="tt">很多活还在 <b>L2</b>：<br>机器出方案，人来拍板</div></div>
+        <div class="tarrow">→<span>AI 变强</span></div>
+        <div class="tcard future"><div class="tg">明天</div><div class="tt">同一件活可能下沉到 <b>L3</b>：<br>机器直接干，人只抽查</div></div>
+        <div class="tarrow">→<span>定期重审</span></div>
+        <div class="tcard"><div class="tg">习惯</div><div class="tt">每隔一段，<b>重新问一遍</b>：<br>这件活，现在该在哪层？</div></div>
+      </div>
+      <div class="dnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><div>但天花板不会动：<b>合规与伦理是上限，L0 永远不下沉。</b></div></div>
+    </div>
+  </section>
+
+  <!-- ===== 总结：升级路径 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="ttl">AI 时代 HR 的升级路径</span></div>
+    <div class="swrap">
+      <div class="pgrid">
+        <div class="pcard p3">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div><div><span class="verb">解放</span><span class="lv">L3 全自主</span></div><div class="txt">把 60% 的事务工时交给机器，HR 从执行里抽身。</div></div>
+        </div>
+        <div class="pcard p2">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div><div><span class="verb">赋能</span><span class="lv">L2 协同</span></div><div class="txt">用机器的方案 + 证据链，把判断做得更快更稳。</div></div>
+        </div>
+        <div class="pcard p1">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div><div><span class="verb">聚焦</span><span class="lv">L1 人主导</span></div><div class="txt">把省下的时间，押在谈话、关系、文化这些只有人能做的事上。</div></div>
+        </div>
+        <div class="pcard p0">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div><span class="verb">守住</span><span class="lv">L0 纯人</span></div><div class="txt">伦理与红线的最终决策权，永远握在人手里。</div></div>
+        </div>
+      </div>
+      <div class="close">解放 <em>L3</em> · 赋能 <em>L2</em> · 聚焦 <em>L1</em> · <b>守住 L0</b></div>
+    </div>
+  </section>
+
+</body>
+</html>

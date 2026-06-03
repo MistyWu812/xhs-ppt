@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{ --orange:#ff9a2e; --orange-soft:#ffb35c; --cyan:#4fcfe0; --blue:#3b82e6;
+    --red:#e8635f; --card:#141d33; --line:rgba(255,255,255,.07); --muted:#8a93ab; }
+  body{ width:1280px; height:1440px; overflow:hidden;
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:#fff;
+    background:linear-gradient(180deg,#0a1020 0%,#0c1326 50%,#0a1020 100%); }
+  .section{ height:720px; display:flex; flex-direction:column; }
+  .banner{ height:64px; flex:none; display:flex; align-items:center; padding:0 40px; gap:16px;
+    background:linear-gradient(90deg,#178fb4 0%,#2360c9 100%); box-shadow:inset 0 -1px 0 rgba(0,0,0,.2); }
+  .banner .accent{ width:6px; height:30px; border-radius:3px; background:var(--orange); flex:none;}
+  .banner .ttl{ font-size:25px; font-weight:800; letter-spacing:.5px; }
+  .body{ flex:1; display:grid; grid-template-columns:440px 1fr; gap:26px; padding:30px 40px 34px; }
+  .col{ display:flex; flex-direction:column; gap:22px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; }
+  .head{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .head svg{ width:22px; height:22px; } .head .h{ font-size:21px; font-weight:700; }
+  .icon-cyan{ color:var(--cyan);} .icon-red{ color:var(--red);} .icon-orange{ color:var(--orange);}
+  .qpanel{ flex:1; display:flex; flex-direction:column; justify-content:center;
+    background:linear-gradient(150deg,#102a44 0%,#0f1830 70%); border:1px solid rgba(79,207,224,.25);
+    border-radius:16px; padding:34px 32px; }
+  .qpanel .qhead{ display:flex; align-items:center; gap:11px; margin-bottom:26px; color:var(--cyan); }
+  .qpanel .qhead svg{ width:26px; height:26px; } .qpanel .qhead span{ font-size:22px; font-weight:700; color:#dff3f7; }
+  .qpanel .big{ font-size:40px; font-weight:900; line-height:1.35; }
+  .qpanel .big em{ font-style:normal; color:var(--cyan); }
+  .sub{ flex:1; }
+  .sub.red{ border-color:rgba(232,99,95,.30); background:rgba(232,99,95,.05);}
+  .sub.cyan{ border-color:rgba(79,207,224,.28); background:rgba(79,207,224,.05);}
+  .sub .row{ display:flex; gap:14px; margin-bottom:14px; }
+  .mini{ flex:1; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:10px;
+    padding:16px 0; text-align:center; font-size:17px; font-weight:600; display:flex; flex-direction:column; align-items:center; gap:9px; }
+  .mini svg{ width:22px; height:22px; }
+  .decide{ display:flex; align-items:center; justify-content:center; gap:16px; padding:8px 0 16px; }
+  .decide .d{ display:flex; align-items:center; gap:9px; font-size:19px; font-weight:700; }
+  .decide .d svg{ width:22px; height:22px; } .decide .arrow{ color:var(--cyan); font-size:22px; }
+  .note{ font-size:15px; color:var(--muted); display:flex; align-items:center; gap:8px; }
+  .note svg{ width:16px; height:16px; flex:none;} .note.r{ color:#f0a3a0;} .note.c{ color:#8fd9e4;}
+  /* ===== cover ===== */
+  .cover{ height:720px; position:relative; display:flex; flex-direction:column; justify-content:center;
+    padding:0 70px; overflow:hidden;
+    background:radial-gradient(900px 520px at 78% 22%, rgba(35,96,201,.40) 0%, rgba(10,16,32,0) 60%),
+               radial-gradient(700px 480px at 12% 88%, rgba(255,154,46,.16) 0%, rgba(10,16,32,0) 60%),
+               linear-gradient(180deg,#0a1020,#0c1326); }
+  .cover .grid{ position:absolute; inset:0; opacity:.35;
+    background-image:linear-gradient(rgba(79,207,224,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(79,207,224,.08) 1px,transparent 1px);
+    background-size:54px 54px; mask-image:radial-gradient(800px 600px at 70% 30%, #000 0%, transparent 75%); }
+  .cover .kicker{ position:relative; display:inline-flex; align-items:center; gap:10px; align-self:flex-start;
+    background:rgba(79,207,224,.10); border:1px solid rgba(79,207,224,.35); color:var(--cyan);
+    padding:9px 18px; border-radius:999px; font-size:17px; font-weight:700; margin-bottom:34px; }
+  .cover .kicker svg{ width:18px; height:18px; }
+  .cover h1{ position:relative; font-size:78px; font-weight:900; line-height:1.12; letter-spacing:1px; }
+  .cover h1 em{ font-style:normal; color:var(--cyan); }
+  .cover .sub{ position:relative; font-size:30px; color:#cdd6e6; font-weight:600; margin-top:22px; }
+  .cover .lvls{ position:relative; display:flex; gap:12px; margin-top:46px; }
+  .cover .pill{ font-size:18px; font-weight:800; padding:10px 20px; border-radius:10px; }
+  .pl3{ background:linear-gradient(135deg,#ff9a2e,#ff7a2e); color:#1a1208;}
+  .pl2{ background:linear-gradient(135deg,#4fcfe0,#3b82e6); color:#06121e;}
+  .pl1{ background:rgba(79,207,224,.16); color:var(--cyan); border:1px solid rgba(79,207,224,.4);}
+  .pl0{ background:rgba(255,255,255,.07); color:#aeb6c8; border:1px solid var(--line);}
+  .cover .author{ position:absolute; bottom:34px; left:70px; font-size:17px; color:var(--muted);}
+</style>
+</head>
+<body>
+
+  <!-- ===== 封面 ===== -->
+  <div class="cover">
+    <div class="grid"></div>
+    <div class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.2"/><circle cx="15.5" cy="16" r="1.2"/><path d="M12 7v4M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>L0–L3 自主性体系</div>
+    <h1>AI 时代<br><em>HR 工作分层</em></h1>
+    <div class="sub">重塑人与机器的关系——把 HR 的活，重新分一遍</div>
+    <div class="lvls">
+      <span class="pill pl3">L3 全自主</span>
+      <span class="pill pl2">L2 协同</span>
+      <span class="pill pl1">L1 人主导</span>
+      <span class="pill pl0">L0 纯人</span>
+    </div>
+  </div>
+
+  <!-- ===== 背景：为什么重新分层 ===== -->
+  <section class="section">
+    <div class="banner"><div class="accent"></div><span class="ttl">为什么需要重新分层？不是裁岗，不是上工具</span></div>
+    <div class="body">
+      <div class="col">
+        <div class="qpanel">
+          <div class="qhead">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>核心问题</span>
+          </div>
+          <div class="big">到底哪些活<br>交给 <em>AI</em>？<br>哪些<em>自己</em>干？</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card sub red">
+          <div class="head"><svg class="icon-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg><span class="h">传统分法：按职能</span></div>
+          <div class="row">
+            <div class="mini"><svg class="icon-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>招聘归招聘</div>
+            <div class="mini"><svg class="icon-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>薪酬归薪酬</div>
+            <div class="mini"><svg class="icon-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg>培训归培训</div>
+          </div>
+          <div class="note r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>AI 不认职能墙，按职能切只会把活越切越碎</div>
+        </div>
+        <div class="card sub cyan">
+          <div class="head"><svg class="icon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="h">新分法：按决策类型</span></div>
+          <div class="decide">
+            <div class="d"><svg class="icon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>人决策</div>
+            <span class="arrow">⇄</span>
+            <div class="d"><svg class="icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="8.5" cy="16" r="1.2"/><circle cx="15.5" cy="16" r="1.2"/><path d="M12 7v4M12 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>机器决策</div>
+          </div>
+          <div class="note c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>跨职能协作，打破职能墙，按"谁来拍板"重新分活</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

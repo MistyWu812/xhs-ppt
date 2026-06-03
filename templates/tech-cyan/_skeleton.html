@@ -1,0 +1,60 @@
+<!-- 科技深色·亮电光青 单页骨架 (1280×720)。复制本文件 → 改 main 内容 + 页码。所有内页共用这套 <style>，勿改 token。 -->
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f0f1e}
+.slide{width:1280px;height:720px;position:relative;overflow:hidden;color:#e8ecf5;
+ font-family:"Noto Sans SC",sans-serif;padding:46px 58px;display:flex;flex-direction:column;
+ background:radial-gradient(1100px 620px at 86% -12%,rgba(0,217,255,.14),transparent 58%),
+            radial-gradient(820px 520px at -6% 120%,rgba(168,85,247,.12),transparent 55%),
+            #1a1a2e;}
+.grid{position:absolute;inset:0;pointer-events:none;
+ background-image:linear-gradient(rgba(0,217,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,217,255,.06) 1px,transparent 1px);
+ background-size:48px 48px;-webkit-mask-image:radial-gradient(960px 560px at 72% 18%,#000,transparent 82%)}
+.title-font{font-family:"Orbitron","Noto Sans SC",sans-serif}
+header{position:relative;z-index:2;margin-bottom:22px}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(0,217,255,.1);border:1px solid rgba(0,217,255,.45);
+ color:#00d9ff;padding:7px 16px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:2px;font-family:"Orbitron","Noto Sans SC"}
+.kicker .material-icons{font-size:17px}
+h1.t{font-size:38px;font-weight:900;margin-top:15px;line-height:1.22;color:#fff}
+h1.t .lv{font-family:"Orbitron";color:#00d9ff;margin-right:8px}
+h1.t .o{color:#ff9f00}
+.rule{height:3px;width:100%;margin-top:16px;border-radius:3px;background:linear-gradient(90deg,#00d9ff,rgba(0,217,255,0))}
+main{position:relative;z-index:2;flex:1;min-height:0}
+.pageno{position:absolute;right:50px;bottom:28px;font-family:"Orbitron";font-size:13px;color:rgba(0,217,255,.5);z-index:3;letter-spacing:1px}
+.card{background:rgba(0,217,255,.06);border:1px solid rgba(0,217,255,.2);border-radius:14px;padding:20px 22px}
+.two{display:grid;grid-template-columns:400px 1fr;gap:22px;height:100%}
+.col{display:flex;flex-direction:column;gap:16px;min-height:0}
+.chead{display:flex;align-items:center;gap:9px;font-size:18px;font-weight:800;color:#fff;margin-bottom:12px}
+.chead .material-icons{color:#00d9ff;font-size:22px}
+.def-term{font-size:21px;font-weight:800;color:#fff;margin-bottom:9px}
+.def-term em{font-style:normal;color:#00d9ff}
+.def-body{font-size:14.5px;line-height:1.7;color:#aab4c8}.def-body b{color:#fff}
+.stat{flex:1;display:flex;flex-direction:column;justify-content:center;
+ background:linear-gradient(135deg,rgba(0,217,255,.13),rgba(168,85,247,.07));border:1px solid rgba(0,217,255,.3)}
+.stat .lab{font-size:15px;color:#9fb0c8;font-weight:700}
+.stat .big{font-family:"Orbitron";font-size:52px;font-weight:900;color:#00d9ff;line-height:1.05;margin:8px 0}
+.stat .big.o{color:#ff9f00}
+.stat .cap{font-size:14px;color:#c5cee0}
+.stat .foot{display:flex;align-items:center;gap:7px;font-size:13px;color:#00d9ff;margin-top:12px}
+.stat .foot .material-icons{font-size:15px}
+.tasks{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.task{display:flex;align-items:center;gap:11px;background:rgba(0,217,255,.06);border-left:3px solid #00d9ff;
+ border-radius:8px;padding:14px 15px;font-size:16px;font-weight:600;color:#dbe3f0}
+.task .material-icons{color:#00d9ff;font-size:20px}
+.keybox{background:rgba(255,159,0,.08);border:1px solid rgba(255,159,0,.35);border-radius:12px;padding:15px 20px}
+.keybox .kh{display:flex;align-items:center;gap:8px;color:#ff9f00;font-weight:800;font-size:17px;margin-bottom:11px}
+.keybox .kh .material-icons{font-size:20px}
+.kpts{display:flex;gap:18px;margin-bottom:10px;flex-wrap:wrap}
+.kpt{display:flex;align-items:center;gap:8px;font-size:14px;color:#e7ebf3}
+.knum{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#00d9ff,#7aa6ff);color:#06121e;
+ font-family:"Orbitron";font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:none}
+.knote{font-size:13.5px;color:#9aa7bd;border-top:1px solid rgba(255,255,255,.06);padding-top:10px}.knote b{color:#ffb84d}
+</style></head><body><div class="slide"><div class="grid"></div>
+<header><div class="kicker"><span class="material-icons" style="font-size:17px;">ICON</span>章节 · SECTION_EN</div><h1 class="t"><span class="lv">L?</span>本页标题，关键词 <span class="o">上色</span></h1><div class="rule"></div></header>
+<main>
+  <!-- 在此放组件：见 _components.html。封面页删掉 header、main 改 justify-content:center -->
+</main>
+<div class="pageno">NN / TT</div></div></body></html>

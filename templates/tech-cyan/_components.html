@@ -1,0 +1,90 @@
+<!-- 科技深色·亮电光青 组件库。每块都是从已验收的 hr-2up 卡里抠出来的真实片段，直接拷进 _skeleton.html 的 <main>。
+     颜色编码固定：L3=橙(#ff9f00→#ff7a00) / L2=青蓝(#00d9ff→#3b82e6) / L1=青描边 / L0=灰描边 / 关键·红线=橙暖底。 -->
+
+<!-- ① 封面 HERO（slide01）：main 设 justify-content:center，无 header -->
+<main style="display:flex;flex-direction:column;justify-content:center">
+  <div class="kicker" style="align-self:flex-start;margin-bottom:34px"><span class="material-icons" style="font-size:17px;">memory</span>L0 – L3 AUTONOMY SYSTEM</div>
+  <div class="title-font" style="font-size:84px;font-weight:900;line-height:1.1;color:#fff">AI 时代</div>
+  <div class="title-font" style="font-size:84px;font-weight:900;line-height:1.1;color:#00d9ff;text-shadow:0 0 32px rgba(0,217,255,.35)">HR 工作分层</div>
+  <div style="font-size:27px;color:#c5cee0;font-weight:600;margin-top:24px">副标题 —— 一句话钩子</div>
+  <div style="display:flex;gap:13px;margin-top:46px">
+    <span class="title-font" style="background:linear-gradient(135deg,#ff9f00,#ff7a00);color:#1a1208;font-weight:800;padding:11px 22px;border-radius:10px;font-size:17px">L3 全自主</span>
+    <span class="title-font" style="background:linear-gradient(135deg,#00d9ff,#3b82e6);color:#06121e;font-weight:800;padding:11px 22px;border-radius:10px;font-size:17px">L2 协同</span>
+    <span class="title-font" style="background:rgba(0,217,255,.14);color:#00d9ff;border:1px solid rgba(0,217,255,.45);font-weight:800;padding:11px 22px;border-radius:10px;font-size:17px">L1 人主导</span>
+    <span class="title-font" style="background:rgba(255,255,255,.07);color:#b8c2d6;border:1px solid rgba(255,255,255,.14);font-weight:800;padding:11px 22px;border-radius:10px;font-size:17px">L0 纯人</span>
+  </div>
+</main>
+
+<!-- ② 逐层详解版式（slide04/05/06/07）：左 定义卡+Hero数字 / 右 任务网格+对比或关键框。最高频内页结构。 -->
+<main class="two"><div class="col">
+  <div class="card"><div class="chead"><span class="material-icons">insights</span>定义</div>
+    <div class="def-term">「<em>关键词上色</em>的一层」</div>
+    <div class="def-body">2–3 句把这层讲清，<b>加粗</b>命门。</div></div>
+  <div class="card stat"><div class="lab">小标签</div><div class="big">5 分钟</div><div class="cap">对照说明</div>
+    <div class="foot"><span class="material-icons">check_circle</span>一句省下了什么</div></div>
+  </div><div class="col">
+  <div class="tasks">
+    <div class="task"><span class="material-icons">payments</span>定级定薪</div>
+    <div class="task"><span class="material-icons">sort</span>JD 优先级</div>
+    <div class="task"><span class="material-icons">equalizer</span>绩效校准</div>
+    <div class="task"><span class="material-icons">school</span>培训方案</div></div>
+  <!-- 右下接 ③对比卡 或 ④关键框，margin-top:auto 贴底 -->
+</div></main>
+
+<!-- ③ ✗vs✓ 对比卡（slide05）：左橙=旧/错，右青=新/对。 -->
+<div class="card" style="margin-top:auto;border-color:rgba(0,217,255,.25)"><div class="chead" style="font-size:16px;margin-bottom:13px"><span class="material-icons" style="font-size:20px;">compare_arrows</span>对比：旧 COE vs L2</div>
+  <div style="display:flex;gap:14px">
+    <div style="flex:1;background:rgba(255,159,0,.07);border:1px solid rgba(255,159,0,.3);border-radius:10px;padding:14px 16px">
+      <div style="display:flex;align-items:center;gap:7px;color:#ff9f00;font-weight:800;font-size:16px;margin-bottom:6px"><span class="material-icons" style="font-size:18px;color:#ff9f00;">close</span>旧 COE</div>
+      <div style="font-size:13.5px;color:#c9b79a;line-height:1.55">慢、说不清依据。</div></div>
+    <div style="flex:1;background:rgba(0,217,255,.08);border:1px solid rgba(0,217,255,.3);border-radius:10px;padding:14px 16px">
+      <div style="display:flex;align-items:center;gap:7px;color:#00d9ff;font-weight:800;font-size:16px;margin-bottom:6px"><span class="material-icons" style="font-size:18px;">check_circle</span>L2</div>
+      <div style="font-size:13.5px;color:#9fdcec;line-height:1.55">给证据链，<b style="color:#bdeaf6">可追溯</b>。</div></div>
+  </div></div>
+
+<!-- ④ 关键框 / 红线框（slide04/08/10）：橙暖底 + ⚠ + 编号要点 + 灰注脚。换青底即「正向关键框」。 -->
+<div class="keybox"><div class="kh"><span class="material-icons">warning_amber</span>关键：异常触发回路</div>
+  <div class="kpts">
+    <div class="kpt"><span class="knum">1</span>抽查 5–10%</div>
+    <div class="kpt"><span class="knum">2</span>异常即触达</div>
+    <div class="kpt"><span class="knum">3</span>高频 review</div></div>
+  <div class="knote">AI 在这层越像黑箱，越要 HR 用 <b>质量监理</b>——这个角色不能在 L3 丢不掉。</div></div>
+
+<!-- ⑤ L0–L3 阶梯/哑铃（slide03）：四条递增宽度的徽章条，视觉编码自主度↑工作量↑。 -->
+<div style="flex:none;width:560px;display:flex;flex-direction:column;align-items:center;gap:12px">
+  <div style="width:46%;background:rgba(255,255,255,.08);color:#dfe4ef;border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:0 24px;height:92px;display:flex;align-items:center;gap:16px"><span class="title-font" style="font-size:23px;font-weight:900">L0</span><div><div style="font-size:22px;font-weight:900">纯人</div><div style="font-size:13px;font-weight:700;opacity:.8">机器不碰</div></div></div>
+  <div style="width:66%;background:rgba(0,217,255,.16);color:#cdf3fb;border:1px solid rgba(0,217,255,.5);border-radius:13px;padding:0 24px;height:92px;display:flex;align-items:center;gap:16px"><span class="title-font" style="font-size:23px;font-weight:900">L1</span><div><div style="font-size:22px;font-weight:900">人主导</div><div style="font-size:13px;font-weight:700;opacity:.8">机器当副驾</div></div></div>
+  <div style="width:84%;background:linear-gradient(135deg,#00d9ff,#3b82e6);color:#06121e;border-radius:13px;padding:0 24px;height:92px;display:flex;align-items:center;gap:16px"><span class="title-font" style="font-size:23px;font-weight:900">L2</span><div><div style="font-size:22px;font-weight:900">协同</div><div style="font-size:13px;font-weight:700;opacity:.8">机器出方案·人拍板</div></div></div>
+  <div style="width:100%;background:linear-gradient(135deg,#ff9f00,#ff7a00);color:#1a1208;border-radius:13px;padding:0 24px;height:92px;display:flex;align-items:center;gap:16px"><span class="title-font" style="font-size:23px;font-weight:900">L3</span><div><div style="font-size:22px;font-weight:900">全自主</div><div style="font-size:13px;font-weight:700;opacity:.8">机器端到端·人抽查</div></div></div>
+</div>
+
+<!-- ⑥ 流程卡（slide10）：卡 →箭头(标注) 卡 →箭头 卡。今天→明天→习惯 / 执行→抽查→兜底。 -->
+<div style="display:flex;align-items:stretch;gap:16px">
+  <div style="flex:1;background:rgba(0,217,255,.06);border:1px solid rgba(0,217,255,.2);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px"><div class="title-font" style="font-size:15px;font-weight:700;letter-spacing:1px;color:#9aa7bd">今天</div><div style="font-size:18px;font-weight:700;line-height:1.45">很多活在 <b style="color:#00d9ff">L2</b></div></div>
+  <div style="display:flex;flex-direction:column;align-items:center;color:#00d9ff;gap:3px"><span class="material-icons" style="font-size:30px;">arrow_forward</span><span style="font-size:12px;color:#9aa7bd">AI 变强</span></div>
+  <div style="flex:1;background:rgba(255,159,0,.06);border:1px solid rgba(255,159,0,.35);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center;gap:10px"><div class="title-font" style="font-size:15px;font-weight:700;letter-spacing:1px;color:#ffb84d">明天</div><div style="font-size:18px;font-weight:700;line-height:1.45">下沉到 <b style="color:#ffb84d">L3</b></div></div>
+</div>
+
+<!-- ⑦ 全景表（slide09）：圆角行 + 徽章列 + 多列。<table> 后紧跟它专属 <style>。 -->
+<table style="width:100%;border-collapse:separate;border-spacing:0 11px">
+<thead><tr style="color:#00d9ff;font-size:15px;font-weight:700"><th style="text-align:center">级别</th><th style="text-align:left">谁决策</th><th style="text-align:left">机器角色</th><th style="text-align:left">人的角色</th><th style="text-align:left">HR 典型工作</th></tr></thead>
+<tbody>
+<tr><td style="text-align:center;width:110px"><span class="title-font" style="display:inline-block;background:linear-gradient(135deg,#ff9f00,#ff7a00);color:#1a1208;border-radius:11px;padding:10px 0;width:78px;font-weight:900"><span style="font-size:19px">L3</span><br><span style="font-size:11px">全自主</span></span></td><td style="color:#ffb84d;font-weight:800;font-size:17px;width:90px">机器</td><td style="font-size:15px;color:#dfe4ef;width:170px">端到端执行</td><td style="font-size:15px;color:#dfe4ef;width:130px">抽查、兜底</td><td style="font-size:14px;color:#9aa7bd;line-height:1.55">政策问答·事务流程·候选人初筛 · <b style="color:#cfd6e6">标准化文案</b></td></tr>
+<!-- L2/L1/L0 同结构换色：L2 青蓝渐变 / L1 青描边 rgba(0,217,255,.16) / L0 灰描边 rgba(255,255,255,.08) -->
+</tbody></table>
+<style>tbody tr td{background:rgba(0,217,255,.05);border-top:1px solid rgba(0,217,255,.14);border-bottom:1px solid rgba(0,217,255,.14);padding:16px 14px;vertical-align:middle}
+tbody tr td:first-child{border-left:1px solid rgba(0,217,255,.14);border-radius:12px 0 0 12px}
+tbody tr td:last-child{border-right:1px solid rgba(0,217,255,.14);border-radius:0 12px 12px 0}</style>
+
+<!-- ⑧ 总结 2×2 图标卡网格 + 强调条（slide11，单页结尾）：四象限 icon 卡 + 底部渐变金句条。 -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div style="background:rgba(255,159,0,.07);border:1px solid rgba(255,159,0,.3);border-radius:14px;padding:20px 22px;display:flex;gap:15px;align-items:flex-start"><div style="width:48px;height:48px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ff9f00,#ff7a00)"><span class="material-icons" style="font-size:26px;color:#1a1208;">bolt</span></div><div><div><span class="title-font" style="font-size:21px;font-weight:900;color:#ffb84d">解放</span><span class="title-font" style="font-size:13px;font-weight:700;opacity:.65;margin-left:8px">L3 全自主</span></div><div style="font-size:14px;color:#9aa7bd;line-height:1.6;margin-top:6px">把 60% 事务交给机器。</div></div></div>
+  <!-- 另三象限：L2 青 equalizer / L1 青描边 person / L0 灰描边 shield -->
+</div>
+<div style="background:linear-gradient(90deg,rgba(0,217,255,.14),rgba(255,159,0,.12));border:1px solid rgba(0,217,255,.3);border-radius:12px;padding:18px;text-align:center;font-size:19px;font-weight:800;color:#fff" class="title-font">
+  解放 <span style="color:#00d9ff">L3</span> · 赋能 <span style="color:#00d9ff">L2</span> · 聚焦 <span style="color:#00d9ff">L1</span> · <span style="color:#ffb84d">守住 L0</span></div>
+
+<!-- ⑨ 痛点二选一（slide02）：核心问题大字 + 旧分法✗ / 新分法✓ 两栏。 -->
+<!-- 常用 Material 图标：memory layers hub insights equalizer person shield bolt warning_amber
+     check_circle close compare_arrows arrow_forward trending_flat update rocket_launch
+     payments sort school table_chart do_not_disturb_on -->
